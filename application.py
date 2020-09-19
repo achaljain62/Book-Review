@@ -310,3 +310,7 @@ def api_call(isbn):
     result['average_score'] = float('%.2f'%(result['average_score']))
 
     return jsonify(result)
+
+
+if __name__=="__main__":
+    app.run()
