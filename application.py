@@ -210,7 +210,7 @@ def book(isbn):
 
         # Convert to save into DB
         rating = int(rating)
-
+        
         db.execute("INSERT INTO reviews (user_id, book_id, comment, rating) VALUES \
                     (:user_id, :book_id, :comment, :rating)",
                     {"user_id": currentUser, 
