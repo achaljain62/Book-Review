@@ -10,7 +10,7 @@
         <div class="col-sm-4">
             <img src="http://covers.openlibrary.org/b/isbn/{{bookInfo[0]['isbn']}}-M.jpg" width="130px">    
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-light">
             <h1>{{bookInfo[0]['title']}}</h1>
             <h5>Author: {{bookInfo[0]['author']}}</h5>
             <h5>Published: {{bookInfo[0]['year']}}</h5>
@@ -18,7 +18,7 @@
         </div>
 
         <!--GOODREADS REVIEWS -->
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-light">
             <img class="mb-3" src="../static/goodreads.jpg" alt="Goodreads" width="200" height="45">
             <h5>Nº of Ratings: {{bookInfo[1]['work_ratings_count']}}</h5>
             <h5>Average Rating: {{bookInfo[1]['average_rating']}}</h5>
@@ -29,16 +29,17 @@
     </div>
     <div class="dropdown-divider"></div>
 
-    <h4 class="alert alert-warning">Users Reviews</h4>
-    <h5>Make your own review!</h5>
+    <h4 class="alert text-light" style="background-color: #513E00">Users Reviews</h4>
+    <h5 class="text-light">Make your own review!</h5>
 
     <div>
         <!-- REVIEW FORM -->
-        <form method="POST" class="form-border">
-            <div class="form-row">
-                <div class="form-group col-sm">
+        <form method="POST" class="form-border mb-5" style="border-color: #7C6A14 !important">
+            <div class="form-row p-3">
+                <div class="form-group col-sm text-light">
                     <label for="rating">Rate this book</label>
-                    <select id="rating" name="rating" class="form-control" required>
+                    <select id="rating" name="rating"  class="form-control text-light ml-1 " required
+                    style="background-color: #181A1B !important">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -49,9 +50,9 @@
                 <div class="form-group col-sm-6">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Say something</span>
+                            <span class="input-group-text text-light" style="background-color: #232627 !important">Say something</span>
                         </div>
-                        <textarea name="comment" id="comment" class="form-control" rows="1" required></textarea>
+                        <textarea name="comment" id="comment" class="form-control text-light" rows="1" required style="background-color: #181A1B !important"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-sm">
@@ -64,14 +65,14 @@
         <div id="userReviews">
             <h2></h2>
             {% for review in reviews %}
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1" style="color:burlywood">{{review['username']}} said...</h6>
-                        <small>{{review['time']}}</small>
+            <div class="list-group border border-dark" >
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" style="background-color: #181A1B !important">
+                    <div class="d-flex w-100 justify-content-between" style="background-color: #181A1B !important">
+                        <h6 class="mb-1" style="color:burlywood">{{review['username']}} commented...</h6>
+                        <small class="text-muted">{{review['time']}}</small>
                     </div>
-                    <p class="mb-1">{{review['comment']}}</p>
-                    <small>Rated: {{review['rating']}}</small>
+                    <p class="mb-1 text-light">{{review['comment']}}</p>
+                    <small class="text-muted">Rated: {{review['rating']}}</small>
                 </a>
                 <div class="dropdown-divider"></div>
             </div>
